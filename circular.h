@@ -9,51 +9,51 @@ class CircularLinkedList : public List<T> {
         CircularLinkedList() : List<T>() {}
 
         T front() {
-            // TODO
+            return this->head->data;
         }
 
         T back() {
-            // TODO
+            return this->tail->data;
         }
 
         void push_front(T value) {
-            // TODO
+
         }
 
         void push_back(T value) {
-            // TODO
+
         }
 
         void pop_front() {
-            // TODO
+
         }
 
         void pop_back() {
-            // TODO
+
         }
 
         T operator[](int index) {
-            // TODO
+
         }
 
         bool empty() {
-            // TODO
+            return this->head == nullptr && this->tail == nullptr;
         }
 
         int size() {
-            // TODO
+            return this->nodes;
         }
 
         void clear() {
-            // TODO
+
         }
 
         void sort() {
-            // TODO
+
         }
     
         void reverse() {
-            // TODO
+
         }
 
         string name() {
@@ -61,15 +61,15 @@ class CircularLinkedList : public List<T> {
         }
 
         BidirectionalIterator<T> begin() {
-            // TODO
+
         }
 
 	    BidirectionalIterator<T> end() {
-            // TODO
+
         }
 
         void merge(CircularLinkedList<T> list) {
-            // TODO
+
         }
 };
 

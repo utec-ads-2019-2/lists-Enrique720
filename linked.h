@@ -96,7 +96,10 @@ public:
     }
 
     void clear() {
-        auto *temp = this->tail;
+        this->head->killSelf();
+        this->nodes = 0;
+        this->head = nullptr;
+        this->tail = nullptr;
 
     }
 
@@ -121,7 +124,7 @@ public:
         temp = this->head;
         for(int i  = 0; i <size; i++){
             temp->data = arr[i];
-            temp->next;
+            temp = temp->next;
         }
     }
 
@@ -136,6 +139,7 @@ public:
         temp = this->head;
         for(int i = size-1 ; i >= 0 ; i ++){
             temp->data = arr[i];
+            temp = temp->next;
         }
     }
 

@@ -28,7 +28,11 @@ class List {
         virtual string name() = 0;
 
         ~List() {
-              head->killSelf();
+            if(head == nullptr && tail== nullptr){
+            }
+            else{
+                this->tail->next= nullptr;
+            head->killSelf();}
         }
 };
 

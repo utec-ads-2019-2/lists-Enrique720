@@ -149,8 +149,9 @@ class CircularLinkedList : public List<T> {
                 temp =temp->next;
             }
             temp = this->head;
-            for(int i = size-1 ; i >= 0 ; i ++){
+            for(int i = size-1 ; i >= 0 ; i --){
                 temp->data = arr[i];
+                temp = temp->next;
             }
         }
 
@@ -159,11 +160,13 @@ class CircularLinkedList : public List<T> {
         }
 
         BidirectionalIterator<T> begin() {
-
+            BidirectionalIterator<T> it(this->head);
+            return it;
         }
 
 	    BidirectionalIterator<T> end() {
-
+            BidirectionalIterator<T> it(this->tail);
+            return it;
         }
 
         void merge(CircularLinkedList<T> list) {

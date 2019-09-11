@@ -137,7 +137,7 @@ public:
             temp =temp->next;
         }
         temp = this->head;
-        for(int i = size-1 ; i >= 0 ; i ++){
+        for(int i = size-1 ; i >= 0 ; i --){
             temp->data = arr[i];
             temp = temp->next;
         }
@@ -148,11 +148,13 @@ public:
     }
 
     BidirectionalIterator<T> begin() {
-        // TODO
+        BidirectionalIterator<T> it(this->head);
+        return it;
     }
 
     BidirectionalIterator<T> end() {
-        // TODO
+        BidirectionalIterator<T> it(this->head->next);
+        return it;
     }
 
     void merge(LinkedList<T> list) {

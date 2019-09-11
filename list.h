@@ -29,6 +29,8 @@ class List {
 
         ~List() {
             if(head == nullptr && tail== nullptr){
+                delete head;
+                delete tail;
             }
             else{
                 this->tail->next= nullptr;

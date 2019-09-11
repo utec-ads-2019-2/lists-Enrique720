@@ -108,6 +108,8 @@ class ForwardList : public List<T> {
         void clear() {
             this->head->killSelf();
             this->nodes = 0;
+            this->head = nullptr;
+            this->tail = nullptr;
         }
 
         void sort() {
@@ -131,7 +133,7 @@ class ForwardList : public List<T> {
             temp = this->head;
             for(int i  = 0; i <size; i++){
                 temp->data = arr[i];
-                temp->next;
+                temp = temp->next;
             }
         }
     

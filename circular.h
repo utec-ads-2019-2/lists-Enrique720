@@ -92,14 +92,13 @@ class CircularLinkedList : public List<T> {
         }
 
         T operator[](int index) {
-            int lim = index%(this->nodes);
-            auto *dat = this->head;
-            for (int i = 0; i < lim ; i++) {
-                dat = dat->next;
-            }
-            return dat->data;
+                int lim = index % (this->nodes);
+                auto *dat = this->head;
+                for (int i = 0; i < lim; i++) {
+                    dat = dat->next;
+                }
+                return dat->data;
         }
-
         bool empty() {
             return this->head == nullptr && this->tail == nullptr;
         }
@@ -112,6 +111,8 @@ class CircularLinkedList : public List<T> {
             this->tail->next = nullptr;
             this->head->killSelf();
             this->nodes = 0;
+            this->head = nullptr;
+            this->tail = nullptr;
         }
 
         void sort() {
@@ -135,7 +136,7 @@ class CircularLinkedList : public List<T> {
             temp = this->head;
             for(int i  = 0; i <size; i++){
                 temp->data = arr[i];
-                temp->next;
+                temp = temp->next;
             }
         }
     

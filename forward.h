@@ -146,8 +146,9 @@ class ForwardList : public List<T> {
                 temp =temp->next;
             }
             temp = this->head;
-            for(int i = size-1 ; i >= 0 ; i ++){
+            for(int i = size-1 ; i >= 0 ; i --){
                 temp->data = arr[i];
+                temp = temp->next;
             }
         }
 
@@ -156,11 +157,13 @@ class ForwardList : public List<T> {
         }
 
         ForwardIterator<T> begin() {
-            // TODO
+            ForwardIterator<T> it(this->head);
+            return it;
         }
 
 	    ForwardIterator<T> end() {
-            // TODO
+            ForwardIterator<T> it(this->tail);
+            return it;
         }
 
         void merge(ForwardList<T> list) {

@@ -9,10 +9,12 @@ class CircularLinkedList : public List<T> {
         CircularLinkedList() : List<T>() {}
 
         T front() {
+            // Falta controlar el caso vacío
             return this->head->data;
         }
 
         T back() {
+            // Falta controlar el caso vacío
             return this->tail->data;
         }
 
@@ -77,8 +79,8 @@ class CircularLinkedList : public List<T> {
             }
             else if(this->nodes ==1){
                 delete this->head;
-                this->head == nullptr;
-                this->tail == nullptr;
+                this->head == nullptr; // Estás comparando no igualando
+                this->tail == nullptr; // Estás comparando no igualando
                 this->nodes = 0;
             }
             else{
@@ -165,6 +167,7 @@ class CircularLinkedList : public List<T> {
         }
 
 	    BidirectionalIterator<T> end() {
+            // Tienes tail en la circular?
             BidirectionalIterator<T> it(this->tail);
             return it;
         }

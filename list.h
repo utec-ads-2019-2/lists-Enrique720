@@ -28,6 +28,7 @@ class List {
         virtual string name() = 0;
 
         ~List() {
+            // Esto no va a funcionar para todos los casos, no es necesario darle delete a lo que apunta a nullptr
             if(head == nullptr && tail== nullptr){
                 delete head;
                 delete tail;

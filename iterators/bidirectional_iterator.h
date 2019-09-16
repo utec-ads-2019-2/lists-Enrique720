@@ -18,6 +18,7 @@ class BidirectionalIterator : public Iterator<T> {
             return this->current != other.current;
         }
 
+// Falta controlar casos vacíos
         BidirectionalIterator<T> operator++() {
             this->current = this->current->next;
             return(*this);

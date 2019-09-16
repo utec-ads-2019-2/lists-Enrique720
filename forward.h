@@ -24,6 +24,7 @@ class ForwardList : public List<T> {
 
         void push_front(T value) {
             auto *temp = new Node<T>(value);
+            // Es mejor usar los punteros en vez del contador
             if(empty()){
                 this->head = temp;
                 this->tail = temp;
@@ -32,7 +33,7 @@ class ForwardList : public List<T> {
                 temp->next = this->head;
                 this->head = temp;
             }
-
+            // this->nodes++;
             this->nodes += 1;
         }
 
@@ -51,13 +52,16 @@ class ForwardList : public List<T> {
 
         void pop_front() {
             auto *temp = this->head;
+            // No es necesario, pero no está mal
             if(empty()) {
                 throw new out_of_range("The list is empty");
             }
             else if(this->nodes == 1){
                 delete this->head;
+                // Dónde igualas a nullptr?
             }
             else{
+                // Dónde igualas a nullptr?
                 this->head = this->head->next;
                 delete temp;
                 this->nodes -=1;
@@ -81,6 +85,7 @@ class ForwardList : public List<T> {
                 this->tail = rec;
                 delete temp;
                 this->nodes -=1;
+                // Dónde igualas a nullptr?
             }
         }
 
@@ -98,6 +103,7 @@ class ForwardList : public List<T> {
         }
 
         bool empty() {
+            // Solo es necesario validar 1
             return this->head == nullptr && this->tail == nullptr;
         }
 
@@ -138,6 +144,7 @@ class ForwardList : public List<T> {
         }
     
         void reverse() {
+            // No es muy eficiente
             auto* temp = this->head;
             int size=this->nodes;
             T * arr  = new T[size];
@@ -157,11 +164,13 @@ class ForwardList : public List<T> {
         }
 
         ForwardIterator<T> begin() {
+            // Podría ser en una línea
             ForwardIterator<T> it(this->head);
             return it;
         }
 
 	    ForwardIterator<T> end() {
+            // Es el siguiente de tail
             ForwardIterator<T> it(this->tail);
             return it;
         }
